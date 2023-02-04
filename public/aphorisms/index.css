@@ -1,0 +1,60 @@
+.content {
+  display: flex;
+  height: 100vh;
+}
+
+.side-navigation {
+  /* サイドナビの横幅 */
+  min-width: 240px;
+  height: 100vh;
+  /* フッタを縦に並べるためdisplay: flex、flex-direction: columnを指定 (*1) */
+  /* https://www.youtube.com/watch?v=UUPSC8ooDOk */
+  display: flex;
+  flex-direction: column;
+  /* サイドナビのフッタを下部に配置するためにposition: relativeを指定 */
+  position: relative;
+}
+
+.side-navigation__footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: red;
+  /* フッタの高さ */
+  min-height: 80px;
+  /* サイドナビの横幅と合わせる */
+  min-width: 240px;
+  /* フッタをbottomに配置する、margin: autoを指定すると最下部、margin-bottom: autoを指定すると半ばに配置 (*1) */
+  margin-top: auto;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.aphorisms {
+  display: grid;
+  /* カード */
+  /* カードの最小幅(minmax)を指定 */
+  grid-template-columns: repeat(3, minmax(240px, 1fr));
+  /* カード / ギャップ指定 */
+  column-gap: 10px;
+  row-gap: 20px;
+}
+
+.main-content__content__aphorisms__aphorism {
+  /* grid-areaを指定するとlayoutが崩れる */
+  /* grid-area: aphorism; */
+  /* aspect-ratio: 16 / 9; */
+  background: rgb(107, 111, 114);
+}
+
+/* サイドナビの開閉状態を管理する */
+.open {
+  display: block;
+}
+
+.close {
+  display: none;
+}
