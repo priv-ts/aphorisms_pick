@@ -16,7 +16,8 @@
   </head>
   <body>
     <div class="content">
-      <div class="side-navigation open">
+      <!-- sidenav -->
+      <div class="side-navigation open-side-nav">
         <nav class="side-navigation__navigation">
           <ul class="side-navigation__navigation__list">
             <li>
@@ -48,15 +49,63 @@
           </div>
         </footer>
       </div>
+      <!-- header -->
+      <header class="header close">
+        <div class="header__sticky">
+          <div class="header__sticky__search-area">
+            <input type="text" placeholder="検索" />
+          </div>
+          <div class="header__sticky__menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <div class="header__navigation">
+          <nav>
+            <ul class="header__navigation__list">
+              <li>
+                <div class="header__navigation__list__menu">
+                  <a href="">管理</a>
+                </div>
+              </li>
+              <li>
+                <div class="header__navigation__list__menu">
+                  <a href="">格言を探す</a>
+                </div>
+              </li>
+              <li>
+                <div class="header__navigation__list__menu">
+                  <a href="">格言を投稿する</a>
+                </div>
+              </li>
+              <li>
+                <div class="header__navigation__list__menu">
+                  <a href="">お気に入り</a>
+                </div>
+              </li>
+              <li>
+                <div class="header__navigation__list__menu">
+                  <a href="">お問い合わせ</a>
+                </div>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <!-- main -->
       <main class="main-content">
+        <!-- contents / header -->
         <div class="main-content__title">
           <h1>格言を探す</h1>
         </div>
-        <div class="main-content__serch-area">
-          <input type="text" />
+        <div class="main-content__search-area">
+          <input type="text" placeholder="検索" />
         </div>
+        <!-- contents / body -->
         <div class="main-content__content">
-          <div class="aphorisms">
+          <div class="main-content__content__aphorisms">
             <article class="main-content__content__aphorisms__aphorism">
               格言1
             </article>
