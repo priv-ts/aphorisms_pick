@@ -1,2 +1,3 @@
-# aphorisms_pick
-格言Pick
+# 概要
+
+格言 Pick
