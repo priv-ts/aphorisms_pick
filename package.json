@@ -1,0 +1,19 @@
+{
+  "name": "aphorisms_pick",
+  "version": "1.0.0",
+  "description": "格言Pick",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priv-ts/aphorisms_pick.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/priv-ts/aphorisms_pick/issues"
+  },
+  "homepage": "https://github.com/priv-ts/aphorisms_pick#readme"
+}
