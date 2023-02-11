@@ -1,0 +1,221 @@
+.content {
+  display: flex;
+  height: 100vh;
+}
+
+/* 全体 */
+/* 開閉状態を管理する */
+.open {
+  display: block;
+}
+
+.close {
+  display: none;
+}
+
+/* サイドナビ */
+
+.side-navigation {
+  /* フッタを縦に並べるためdisplay: flexとflex-direction: columnを指定 (*1) */
+  display: flex;
+  flex-direction: column;
+  /* サイドナビのフッタを下部に配置するためにposition: relativeを指定 */
+  position: relative;
+  /* サイドナビの横幅 */
+  min-width: 240px;
+  height: 100vh;
+}
+
+.side-navigation__footer {
+  /* フッタをサイドナビの最下部に固定 */
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  /* サイドナビの横幅と合わせる */
+  min-width: 240px;
+  /* フッタの高さ */
+  min-height: 80px;
+  background-color: red;
+}
+
+/* メイン */
+
+/* メインコンテント */
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
+
+/* 格言エリア */
+
+.main-content__content__aphorisms {
+  display: grid;
+  /* カード */
+  /* カードの最小幅(minmax)を指定 */
+  grid-template-columns: repeat(3, minmax(240px, 1fr));
+  /* カード / ギャップ指定 */
+  column-gap: 10px;
+  row-gap: 20px;
+}
+
+.main-content__content__aphorisms__aphorism {
+  /* grid-areaを指定するとlayoutが崩れる、なぜだ */
+  /* grid-area: aphorism; */
+  margin-top: 10px;
+  aspect-ratio: 16 / 9;
+  background: rgb(222, 200, 255);
+}
+
+/* inputの仮置き */
+input {
+  margin: 20px;
+  background-color: burlywood;
+}
+
+/* Tablet (ブレークポイントは仮置き) */
+@media screen and (max-width: 1024px) {
+  /* 全体 */
+
+  .content {
+    /* Tabletやスマホの場合はヘッダの縦にコンテンツを並べる */
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* サイドナビ */
+
+  .side-navigation {
+    display: none;
+  }
+
+  /* ヘッダ */
+
+  header.header {
+    display: block;
+    /* 上固定、横幅を画面幅にする */
+    position: fixed;
+    width: 100%;
+    /* ヘッダの高さ */
+    height: 60px;
+    background-color: azure;
+  }
+
+  .header__sticky {
+    display: flex;
+    /* 検索バーとメニューアイコンをそれぞれ左右の端に配置 */
+    justify-content: space-between;
+  }
+
+  .header__sticky__menu {
+    /* blockに変換したspan要素を縦並びに配置する */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* div内のsvgを上下中央揃えで配置 */
+    width: 60px;
+    background-color: red;
+    /* ヘッダがactiveの時はz-index: 999に統一 */
+    z-index: 999;
+    cursor: pointer;
+  }
+
+  /* ヘッダ /メニューアイコン */
+
+  .header__sticky__menu span {
+    /* ヘッダのメニューアイコンの幅 */
+    display: block;
+    /* 線(span)の余白を相対的に指定するためpostion: relativeを指定 */
+    position: relative;
+    width: 30px;
+    height: 5px;
+    border-radius: 2px;
+    background-color: #333;
+    transition: all 0.5s;
+  }
+
+  .header__sticky__menu span:nth-child(1) {
+    top: -2px;
+  }
+  .header__sticky__menu span:nth-child(2) {
+    top: 2px;
+  }
+  .header__sticky__menu span:nth-child(3) {
+    top: 6px;
+  }
+
+  /* ヘッダ / メニューアイコン押下時のアニメーション */
+  .header__sticky__menu.open span {
+    background-color: white;
+  }
+
+  .header__sticky__menu.open span:nth-child(1) {
+    /* 高さを下げて、時計回りに回転 */
+    /* よくわからないけど9pxにすると交差点がjustになる */
+    transform: translateY(9px) rotate(315deg);
+  }
+
+  .header__sticky__menu.open span:nth-child(2) {
+    /* 線(span)の2本目は非可視にする */
+    opacity: 0;
+  }
+
+  .header__sticky__menu.open span:nth-child(3) {
+    /* 高さを上げて、反時計回りに回転 */
+    /* よくわからないけど9pxにすると交差点がjustになる */
+    transform: translateY(-9px) rotate(-315deg);
+  }
+
+  /* ヘッダ / ナビゲーション */
+  .header__navigation {
+    display: block;
+    /* 位置を指定するためposition: static(初期値)以外を指定する */
+    position: fixed;
+    /* ヘッダメニューに大きい負数を指定してデフォルトで非表示にする */
+    top: -10000px;
+    left: -10000px;
+    /* ヘッダがactiveの時はz-index: 999に統一 */
+    z-index: 999;
+    list-style: none;
+    width: 100%;
+    opacity: 0;
+    background-color: khaki;
+    transition: all 0.2s;
+  }
+
+  .header__navigation.open {
+    top: 60px;
+    left: 0;
+    opacity: 1;
+  }
+
+  /* メイン */
+  /* メイン / コンテンツ */
+  .main-content {
+    /* ヘッダの高さ分ｍarginを設定 */
+    margin-top: 60px;
+  }
+
+  .main-content__title {
+    display: none;
+  }
+
+  .main-content__search-area {
+    /* Tabledでは検索バーをヘッダエリアに表示するためmain-content内では非表示にする */
+    display: none;
+  }
+
+  .main-content__content__aphorisms {
+    /* Gridのカード配置を2カラムにする */
+    grid-template-columns: repeat(2, minmax(240px, 1fr));
+  }
+
+  /* スマホ (ブレークポイントは仮置き) */
+  @media screen and (max-width: 768px) {
+    .main-content__content__aphorisms {
+      /* Gridのカード配置を2カラムにする */
+      grid-template-columns: repeat(1, minmax(240px, 1fr));
+    }
+  }
+}
