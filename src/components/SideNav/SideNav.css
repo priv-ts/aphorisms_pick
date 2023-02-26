@@ -5,4 +5,27 @@
   /* サイドナビの横幅 */
   min-width: 240px;
   height: 100vh;
+  box-shadow: 0px 0px 15px -5px #777777;
+  border-radius: 10px;
+}
+
+.side-nav__navigation {
+  margin: 10px;
+}
+
+.side-nav__navigation__list__menu {
+  padding: 8px;
+}
+
+.side-nav__navigation__list__menu > a {
+  display: block;
+}
+
+.side-nav__navigation__list__menu:has(.active) {
+  background-color: #a88876;
+  border-radius: 4px;
+}
+
+.active {
+  color: white;
 }
