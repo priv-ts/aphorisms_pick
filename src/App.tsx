@@ -1,11 +1,18 @@
-import { useState } from 'react'
-import SideNav from './components/SideNav'
 import './App.css'
+import HeaderForPC from './components/HeaderForPC/HeaderForPC'
+import SideNav from './components/SideNav/SideNav'
+import Aphorism from './pages/aphorisms/Aphorism'
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return <SideNav />
+  return (
+    <div className="content">
+      <SideNav />
+      <div className="main-content">
+        <HeaderForPC />
+        <Aphorism />
+      </div>
+    </div>
+  )
 }
 
 export default App

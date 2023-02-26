@@ -1,0 +1,8 @@
+.side-nav {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  /* サイドナビの横幅 */
+  min-width: 240px;
+  height: 100vh;
+}

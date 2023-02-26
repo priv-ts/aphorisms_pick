@@ -1,0 +1,9 @@
+/*  */
+.side-nav__footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  min-width: 240px;
+  min-height: 80px;
+  background-color: red;
+}
