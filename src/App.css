@@ -1,4 +1,13 @@
+body {
+  background-color: #fef0f9;
+}
+
 .content {
   display: flex;
   height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
 }

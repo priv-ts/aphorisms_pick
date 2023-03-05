@@ -1,15 +1,27 @@
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
-import HeaderForPC from './components/HeaderForPC/HeaderForPC'
 import SideNav from './components/SideNav/SideNav'
-import Aphorism from './pages/aphorisms/Aphorism'
+import About from './pages/about/About'
+import AphorismList from './pages/aphorism/List/AphorismList'
+import AphorismNew from './pages/aphorism/New/AphorismNew'
+import NotFound from './pages/notFound/NotFound'
+import Profile from './pages/profile/Profile'
+import User from './pages/user/User'
 
 function App() {
   return (
     <div className="content">
       <SideNav />
       <div className="main-content">
-        <HeaderForPC />
-        <Aphorism />
+        <Routes>
+          <Route path="/" element={<AphorismList />} />
+          <Route path="/aphorisms" element={<AphorismList />} />
+          <Route path="/aphorisms/new" element={<AphorismNew />} />
+          <Route path="/users" element={<User />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/about" element={<About />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </div>
     </div>
   )
