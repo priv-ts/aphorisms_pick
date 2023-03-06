@@ -2,13 +2,17 @@ import './AphorismList.css'
 import Header from '../../../components/Header/Header'
 import Card from '../../../components/Card/Card'
 import { aphorisms } from '../../../dummyData'
+import client from '../../../../libs/client'
 
 const AphorismList = () => {
-  const blogs = await fetch('https://ixy9mgadr5.microcms.io/api/v1/blogs', {
-    headers: {
-      'X-MICROCMS-API-KEY': 'nTntyalEoVyTAEotusWYGWkqzwgIi1U6vbXh',
-    },
-  })
+  const blogs = client
+    .get({
+      endpoint: 'aphorisms',
+    })
+    .then((res) => console.log(res))
+    .catch((err) => console.log(err))
+
+  console.log(blogs)
 
   return (
     <>
